@@ -124,12 +124,28 @@ BEGIN
     VALUES(
         NEW.id,
         TRUE,
-        'Home',
+        '1st Day',
         4096,
         'gpt-4-1106-preview',
-        'You are a friendly, helpful AI assistant.',
+        '日本語で答えてください',
         0.5,
-        'My home workspace.',
+        'hallucination bot',
+        'openai',
+        TRUE,
+        TRUE,
+        ''
+    );
+
+    INSERT INTO public.workspaces(user_id, is_home, name, default_context_length, default_model, default_prompt, default_temperature, description, embeddings_provider, include_profile_context, include_workspace_instructions, instructions)
+    VALUES(
+        NEW.id,
+        FALSE,
+        '2nd Day',
+        4096,
+        'gpt-4-1106-preview',
+        'フランス語で答えてください',
+        0.5,
+        'embiased bot',
         'openai',
         TRUE,
         TRUE,

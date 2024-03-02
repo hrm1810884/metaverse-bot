@@ -19,7 +19,6 @@ import { useChatHandler } from "./chat-hooks/use-chat-handler"
 import { useChatHistoryHandler } from "./chat-hooks/use-chat-history"
 import { usePromptAndCommand } from "./chat-hooks/use-prompt-and-command"
 import { useSelectFileHandler } from "./chat-hooks/use-select-file-handler"
-import { toast } from "sonner"
 
 interface ChatInputProps {}
 
@@ -145,16 +144,11 @@ export const ChatInput: FC<ChatInputProps> = ({}) => {
     const imagesAllowed = LLM_LIST.find(
       llm => llm.modelId === chatSettings?.model
     )?.imageInput
+    if (!imagesAllowed) return
 
     const items = event.clipboardData.items
     for (const item of items) {
       if (item.type.indexOf("image") === 0) {
-        if (!imagesAllowed) {
-          toast.error(
-            `Images are not supported for this model. Use models like GPT-4 Vision instead.`
-          )
-          return
-        }
         const file = item.getAsFile()
         if (!file) return
         handleSelectDeviceFile(file)
@@ -167,7 +161,7 @@ export const ChatInput: FC<ChatInputProps> = ({}) => {
       <div className="flex flex-col flex-wrap justify-center gap-2">
         <ChatFilesDisplay />
 
-        {selectedTools &&
+        {/* {selectedTools &&
           selectedTools.map((tool, index) => (
             <div
               key={index}
@@ -208,13 +202,13 @@ export const ChatInput: FC<ChatInputProps> = ({}) => {
               Talking to {selectedAssistant.name}
             </div>
           </div>
-        )}
+        )} */}
       </div>
 
       <div className="border-input relative mt-3 flex min-h-[60px] w-full items-center justify-center rounded-xl border-2">
-        <div className="absolute bottom-[76px] left-0 max-h-[300px] w-full overflow-auto rounded-xl dark:border-none">
+        {/* <div className="absolute bottom-[76px] left-0 max-h-[300px] w-full overflow-auto rounded-xl dark:border-none">
           <ChatCommandInput />
-        </div>
+        </div> */}
 
         <>
           <IconCirclePlus
@@ -239,9 +233,7 @@ export const ChatInput: FC<ChatInputProps> = ({}) => {
         <TextareaAutosize
           textareaRef={chatInputRef}
           className="ring-offset-background placeholder:text-muted-foreground focus-visible:ring-ring text-md flex w-full resize-none rounded-md border-none bg-transparent px-14 py-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
-          placeholder={t(
-            `Ask anything. Type "@" for assistants, "/" for prompts, "#" for files, and "!" for tools.`
-          )}
+          placeholder={t(`テキストを入力`)}
           onValueChange={handleInputChange}
           value={userInput}
           minRows={1}

@@ -126,8 +126,8 @@ export const useChatHandler = () => {
         model: (selectedWorkspace.default_model ||
           "gpt-4-1106-preview") as LLMID,
         prompt:
-          selectedWorkspace.default_prompt ||
-          "You are a friendly, helpful AI assistant.",
+          'Please write "hoge" before the answer!' || //ここでdefaultプロンプト指定可能
+          selectedWorkspace.default_prompt,
         temperature: selectedWorkspace.default_temperature || 0.5,
         contextLength: selectedWorkspace.default_context_length || 4096,
         includeProfileContext:

@@ -132,14 +132,14 @@ export const WorkspaceSwitcher: FC<WorkspaceSwitcherProps> = ({}) => {
 
       <PopoverContent className="p-2">
         <div className="space-y-2">
-          <Button
+          {/* <Button
             className="flex w-full items-center space-x-2"
             size="sm"
             onClick={handleCreateWorkspace}
           >
             <IconPlus />
             <div className="ml-2">New Workspace</div>
-          </Button>
+          </Button> */}
 
           <Input
             placeholder="Search workspaces..."

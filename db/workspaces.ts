@@ -41,6 +41,8 @@ export const getWorkspacesByUserId = async (userId: string) => {
     throw new Error(error.message)
   }
 
+  console.log(workspaces)
+
   return workspaces
 }
 

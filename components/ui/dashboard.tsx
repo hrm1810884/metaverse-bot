@@ -24,8 +24,9 @@ export const Dashboard: FC<DashboardProps> = ({ children }) => {
 
   const pathname = usePathname()
   const router = useRouter()
-  const searchParams = useSearchParams()
-  const tabValue = searchParams.get("tab") || "chats"
+  // const searchParams = useSearchParams()
+  // const tabValue = searchParams.get("tab") || "chats"
+  const tabValue = "chats"
 
   const { handleSelectDeviceFile } = useSelectFileHandler()
 
@@ -99,10 +100,10 @@ export const Dashboard: FC<DashboardProps> = ({ children }) => {
           <Tabs
             className="flex h-full"
             value={contentType}
-            onValueChange={tabValue => {
-              setContentType(tabValue as ContentType)
-              router.replace(`${pathname}?tab=${tabValue}`)
-            }}
+            // onValueChange={tabValue => {
+            //   setContentType(tabValue as ContentType)
+            //   router.replace(`${pathname}?tab=${tabValue}`)
+            // }}
           >
             <SidebarSwitcher onContentTypeChange={setContentType} />
 

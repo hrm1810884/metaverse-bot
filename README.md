@@ -8,21 +8,13 @@ The open-source AI chat app for everyone.
 
 View the latest demo [here](https://x.com/mckaywrigley/status/1738273242283151777?s=20).
 
-## Updates
-
-Hey everyone! I've heard your feedback and am working hard on a big update.
-
-Things like simpler deployment, better backend compatibility, and improved mobile layouts are on their way.
-
-Be back soon.
-
--- Mckay
-
 ## Official Hosted Version
 
-Use Chatbot UI without having to host it yourself!
+You can find the official hosted version of Chatbot UI [here](https://chatbotui.com).
 
-Find the official hosted version of Chatbot UI [here](https://chatbotui.com).
+Basic features are free to use.
+
+We offer a premium tier for advanced features and faster messages to help pay for hosting costs.
 
 ## Sponsor
 
